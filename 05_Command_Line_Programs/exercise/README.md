@@ -1,4 +1,4 @@
-# Command-line programs
+ # Command-line programs
 
 The purpose of this exercise is to provide students with the opportunity to practice and reinforce the skills they have learned during lecture related to building command line applications. In this exercise, you'll create command-line applications that:
 
