@@ -12,12 +12,10 @@ class SavingsAccount extends BankAccount {
 
         if(balance-amountToWithdraw > 150) {
             balance = balance-amountToWithdraw;
-            setBalance(balance);
             return balance;
         }
         if(balance-amountToWithdraw < 150 && balance-amountToWithdraw > 0) {
             balance = balance-amountToWithdraw-2;
-            setBalance(balance);
             return balance;
         }
         else
