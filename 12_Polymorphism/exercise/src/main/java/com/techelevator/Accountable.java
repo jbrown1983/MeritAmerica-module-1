@@ -1,2 +1,6 @@
-package com.techelevator;public class Accountable {
+package com.techelevator;
+
+
+public interface Accountable {
+    int getBalance();
 }
