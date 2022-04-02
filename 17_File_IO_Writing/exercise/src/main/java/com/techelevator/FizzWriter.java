@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class FizzWriter {
 
-
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
@@ -19,14 +18,13 @@ public class FizzWriter {
 			System.out.println("Error: " + file + " not found.");
 			return;
 		}
-
 		try {
 			FileWriter writer = new FileWriter(theFile);
 			for (int num = 1; num <= 300; num++) {
-				if (num % 3 == 0 && num % 5 == 0) writer.write("FizzBuzz\r\n");
-				else if (num % 3 == 0) writer.write("Fizz\r\n");
-				else if (num % 5 == 0) writer.write("Fizz\r\n");
-				else writer.write(String.format("%d\r\n", num));
+				if (num % 3 == 0 && num % 5 == 0) writer.write("FizzBuzz");
+				else if (num % 3 == 0) writer.write("Fizz");
+				else if (num % 5 == 0) writer.write("Fizz");
+				else writer.write(String.format("%d", num));
 			}
 			writer.flush();
 			writer.close();
