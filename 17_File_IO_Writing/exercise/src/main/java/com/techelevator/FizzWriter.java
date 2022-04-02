@@ -1,38 +1,41 @@
 package com.techelevator;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FizzWriter {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
+		String filename;
+		Scanner sc = new Scanner(System.in);
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter filename: ");
-		String file = scanner.nextLine();
+		System.out.println("Enter the destination file: ");
+		filename = sc.nextLine();
 
-		File theFile = new File(file);
+		sc.close();
 
-		if (!theFile.exists()) {
-			System.out.println("Error: " + file + " not found.");
-			return;
-		}
 		try {
-			FileWriter writer = new FileWriter(theFile);
-			for (int num = 1; num <= 300; num++) {
-				if (num % 3 == 0 && num % 5 == 0) writer.write("FizzBuzz");
-				else if (num % 3 == 0) writer.write("Fizz");
-				else if (num % 5 == 0) writer.write("Fizz");
-				else writer.write(String.format("%d", num));
+			PrintWriter writer = new PrintWriter(filename);
+
+			for(int n=1;n<=300;n++)
+			{
+				if(n%3 == 0 && n%5 == 0)
+					writer.println("FizzBuzz");
+				else if(n%3 == 0 || (n+"").contains("3"))
+					writer.println("Fizz");
+				else if(n%5 == 0 || (n+"").contains("5"))
+					writer.println("Buzz");
+				else
+					writer.println(n);
 			}
-			writer.flush();
+
 			writer.close();
-			System.out.println(file + " overwritten successfully.");
 
-		} catch (IOException e) {
-			System.out.println("Error: " + file + " not found.");
+		} catch (FileNotFoundException e) {
+			System.out.println("ERROR: Invalid destination file.");
 		}
-
 	}
+
 }
